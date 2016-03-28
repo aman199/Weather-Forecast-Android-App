@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/bg2">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forecast Search"
+        android:id="@+id/textView"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textColor="#040000"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:layout_margin="20dp"/>
+
+    <TableLayout android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Street"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:ems="10">
+
+            </EditText>
+
+        </TableRow>
+
+
+       <TableRow
+           android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/city"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:ems="10" >
+
+
+        </EditText>
+        </TableRow>
+       <TableRow
+           android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="State"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+           <Spinner
+               android:id="@+id/sp1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="20dp"
+               android:entries="@array/states"/>
+
+       </TableRow>
+    <TableRow
+        android:layout_margin="5dp">
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Degree"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <RadioGroup android:orientation="horizontal"
+            android:id="@+id/rg1"
+
+            android:layout_marginLeft="20dp">
+            <RadioButton
+                android:id="@+id/radio1"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fahrenheit"/>
+
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Celsius"/>
+
+        </RadioGroup>
+    </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+
+        >
+            <Button
+                android:id="@+id/bt_search"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Search"
+                android:layout_marginRight="15dp"
+                android:onClick="go"/>
+            <Button
+                android:id="@+id/bt_clear"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Clear"
+                android:onClick="clc"/>
+
+    </LinearLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="30dp">
+    <TextView
+        android:id="@+id/text_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+</RelativeLayout>
+
+
+</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+       >
+
+        <Button
+            android:id="@+id/bt_about"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="About"
+            android:onClick="abt" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Powered By:"
+
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+        <ImageView
+            android:id="@+id/imageView1"
+            android:src="@drawable/forecast_logo"
+            android:layout_width="100dp"
+            android:layout_height="50dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
