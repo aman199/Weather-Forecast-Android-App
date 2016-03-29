@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.google.android.gms.maps.MapFragment;
 import com.hamweather.aeris.communication.AerisCallback;
 import com.hamweather.aeris.communication.AerisEngine;
@@ -24,8 +23,6 @@ import com.hamweather.aeris.tiles.AerisTile;
 
 public class map_fragment extends MapViewFragment
 {
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_map, container, false);
@@ -40,26 +37,13 @@ public class map_fragment extends MapViewFragment
         Location location = new Location("");
         location.setLatitude(Double.valueOf(lat));
         location.setLongitude(Double.valueOf(lng));
-
+        
+        //putting the marker on the requested location with the zoom value of 9.
         mapView.moveToLocation(location, 9);
+        
+        //Adding satellite view layer to the map.
         mapView.addLayer(AerisTile.RADSAT);
-
-
-
-            return view;
-
-
-    }
-//    public void onResume() {
-//
-//        mapView.getMap();
-//       mapView.onResume();
-//        super.onResume();
-//
-//    }
-
-
-
-
+        return view;
+   }
 
 }
