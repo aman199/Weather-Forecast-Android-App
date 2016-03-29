@@ -8,10 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
@@ -72,7 +70,7 @@ public class NewDetails extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
+        //Showing data for next 48 hours..
         for(int i=0;i<48;i++) {
 
             String hour = "tv" + (i+1) + "1";
@@ -128,61 +126,9 @@ public class NewDetails extends AppCompatActivity {
             }
         }
 
-        for(int i=0;i<24;i++) {
-
-            String hour = "tv_2" + (i+1) + "1";
-            String image ="iv_2"+(i+1);
-            String temp = "tv_2" + (i+1) + "2";
-
-            try {
-                int id1 = R.id.class.getDeclaredField(hour).getInt(null);
-                int id2 = R.id.class.getDeclaredField(image).getInt(null);
-                int id3 = R.id.class.getDeclaredField(temp).getInt(null);
-                TextView tv = (TextView) findViewById(id1);
-                ImageView iv =(ImageView)findViewById(id2);
-                TextView tv2 = (TextView) findViewById(id3);
-
-                Long timeStamp=Long.parseLong(((JSONObject) json.getJSONObject("hourly").getJSONArray("data").get(i+24)).getString("time"));
-                String timezone=json.getString("timezone");
-                java.util.Date t=new java.util.Date(timeStamp*1000);
-                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a"); // the format of your date
-                sdf.setTimeZone(TimeZone.getTimeZone(timezone));
-                String formattedDate = sdf.format(t);
-                tv.setText(formattedDate);
-
-                String icon=((JSONObject) json.getJSONObject("hourly").getJSONArray("data").get(i+24)).getString("icon");
-                if (icon.equals("partly-cloudy-day")) {
-                    iv.setImageResource(R.drawable.cloud_day);
-                } else if (icon.equals("partly-cloudy-night")) {
-                    iv.setImageResource(R.drawable.cloud_night);
-                } else if (icon.equals("clear-day")) {
-                    iv.setImageResource(R.drawable.clear);
-                } else if (icon.equals("clear-night")) {
-                    iv.setImageResource(R.drawable.clear_night);
-                } else if (icon.equals("rain")) {
-                    iv.setImageResource(R.drawable.rain);
-                } else if (icon.equals("snow")) {
-                    iv.setImageResource(R.drawable.snow);
-                } else if (icon.equals("sleet")) {
-                    iv.setImageResource(R.drawable.sleet);
-                } else if (icon.equals("wind")) {
-                    iv.setImageResource(R.drawable.wind);
-                } else if (icon.equals("fog")) {
-                    iv.setImageResource(R.drawable.fog);
-                } else if (icon.equals("cloudy")) {
-                    iv.setImageResource(R.drawable.cloudy);
-                }
-
-                Double tem=Double.parseDouble(((JSONObject) json.getJSONObject("hourly").getJSONArray("data").get(i+24)).getString("temperature"));
-                int j=tem.intValue();
-
-                tv2.setText(j+"");
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
+        
+         
+        //Showing data for next 7 days.. 
         for(int i=1;i<=7;i++)
         {
             String date="tvd_"+i+"1";
@@ -247,25 +193,19 @@ public class NewDetails extends AppCompatActivity {
             {
                 e.printStackTrace();
             }
-
-
         }
-
-
     }
+    
+    //Show next 24 hours weather forecast..it just toggling the days and hour data.
     public void show_next24(View v) {
         tl3.setVisibility(v.VISIBLE);
         tl2.setVisibility(v.GONE);
-
-
     }
 
     public void show_days(View v)
     {
         bt1.setBackgroundResource(R.drawable.green);
         bt2.setBackgroundResource(R.drawable.pink);
-//        bt2.setBackgroundColor(Color.RED);
-//        bt1.setBackgroundColor(Color.BLUE);
         tl1.setVisibility(v.GONE);
         tl2.setVisibility(v.GONE);
         tl3.setVisibility(v.GONE);
@@ -275,8 +215,6 @@ public class NewDetails extends AppCompatActivity {
     {
         bt1.setBackgroundResource(R.drawable.pink);
         bt2.setBackgroundResource(R.drawable.green);
-//        bt2.setBackgroundColor(Color.BLUE);
-//        bt1.setBackgroundColor(Color.RED);
         tl1.setVisibility(v.VISIBLE);
         tl2.setVisibility(v.VISIBLE);
         tl3.setVisibility(v.GONE);
