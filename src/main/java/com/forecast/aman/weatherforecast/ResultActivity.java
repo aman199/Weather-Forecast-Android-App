@@ -32,6 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -57,14 +58,14 @@ public class ResultActivity extends AppCompatActivity {
     String state;
     String degree;
     CallbackManager callbackManager;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        
         FacebookSdk.sdkInitialize(getApplicationContext());
-
-
-
+        
         String s=getIntent().getExtras().getString("Json");
         String street=getIntent().getExtras().getString("street");
         city=getIntent().getExtras().getString("city");
@@ -89,6 +90,7 @@ public class ResultActivity extends AppCompatActivity {
             json=new JSONObject(s);
             lat=json.getString("latitude");
             lng=json.getString("longitude");
+            
             String icon=json.getJSONObject("currently").getString("icon");
             if (icon.equals("partly-cloudy-day")) {
                 iv.setImageResource(R.drawable.cloud_day);
@@ -168,7 +170,6 @@ public class ResultActivity extends AppCompatActivity {
             String hum=json.getJSONObject("currently").getString("humidity");
             Double ihum=Double.parseDouble(hum);
 
-
             tv9.setText(Math.round(ihum * 100) + "%");
 
             double roundvis = Math.round((Double.parseDouble(json.getJSONObject("currently").getString("visibility"))) * 100d) / 100d;
@@ -180,7 +181,6 @@ public class ResultActivity extends AppCompatActivity {
                 tv10.setText(roundvis + " mi");
             }
 
-
             Long timeStamp=Long.parseLong(((JSONObject) json.getJSONObject("daily").getJSONArray("data").get(0)).getString("sunriseTime"));
             String timezone=json.getString("timezone");
             java.util.Date t=new java.util.Date(timeStamp*1000);
@@ -188,9 +188,7 @@ public class ResultActivity extends AppCompatActivity {
             sdf.setTimeZone(TimeZone.getTimeZone(timezone));
             String formattedDate = sdf.format(t);
 
-
             tv11.setText(formattedDate);
-
 
             Long s_timeStamp=Long.parseLong(((JSONObject) json.getJSONObject("daily").getJSONArray("data").get(0)).getString("sunsetTime"));
 
@@ -204,9 +202,8 @@ public class ResultActivity extends AppCompatActivity {
             tv12.setText(s_formattedDate);
 
          //   Toast.makeText(this,formattedDate, Toast.LENGTH_LONG).show();
-
-
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -233,7 +230,7 @@ public class ResultActivity extends AppCompatActivity {
     {
         callbackManager = CallbackManager.Factory.create();
         ShareDialog shareDialog = new ShareDialog(this);
-        // this part is optional
+       
         String s=null;
         String image=null;
 
@@ -319,12 +316,6 @@ public class ResultActivity extends AppCompatActivity {
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
-
-
-
     }
-    //        Intent in=new Intent(this, FB_activity.class);
-//        startActivity(in);
-
 
 }
