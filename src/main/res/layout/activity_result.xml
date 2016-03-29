@@ -10,40 +10,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
-        <Button
-
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:text="MORE DETAILS"
-            android:onClick="show_detail"
-            android:layout_marginRight="10dp"
-
-            />
-        <Button
-
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="VIEW MAP"
-            android:onClick="view_map"/>
-        <ImageView
-            android:id="@+id/imageView1"
-            android:src="@drawable/fb_icon"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:onClick="share_fb"/>
-
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="MORE DETAILS"
+                android:onClick="show_detail"
+                android:layout_marginRight="10dp"/>
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="VIEW MAP"
+                android:onClick="view_map"/>
+            <ImageView
+                android:id="@+id/imageView1"
+                android:src="@drawable/fb_icon"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:onClick="share_fb"/>
+    
+        </LinearLayout>
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center"
             android:layout_marginTop="30dp">
+            
             <ImageView
                 android:id="@+id/icon_img"
                 android:layout_width="wrap_content"
@@ -54,7 +53,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_gravity="center"/>
             <LinearLayout
@@ -63,23 +61,22 @@
                 android:orientation="horizontal"
                 android:gravity="center">
 
-            <TextView
-                android:id="@+id/tv_temp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-
-                android:textSize="50dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="center"/>
-            <TextView
-                android:id="@+id/tv_deg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:textSize="20dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_gravity="top"/>
+                <TextView
+                    android:id="@+id/tv_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="50dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:id="@+id/tv_deg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_gravity="top"/>
             </LinearLayout>
 
             <TextView
@@ -87,30 +84,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_gravity="center"/>
+                
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:stretchColumns="1">
+                
                 <TableRow>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Precipitation"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                   />
-                <TextView
-                    android:id="@+id/tv_prec"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-
-                    />
-            </TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Precipitation"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <TextView
+                        android:id="@+id/tv_prec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
+                </TableRow>
 
                 <TableRow
                     android:layout_marginTop="20px">
@@ -118,122 +113,105 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chance of Rain"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                       />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                     <TextView
                         android:id="@+id/tv_cor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
                 </TableRow>
+                
                 <TableRow
                     android:layout_marginTop="20px">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Wind Speed"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                     <TextView
                         android:id="@+id/tv_ws"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                 </TableRow>
+                
                 <TableRow
                     android:layout_marginTop="20px">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Dew Point"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                     <TextView
                         android:id="@+id/tv_dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                 </TableRow>
+                
                 <TableRow
                     android:layout_marginTop="20px">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Humidity"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                     <TextView
                         android:id="@+id/tv_hum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                 </TableRow>
+                
                 <TableRow
                     android:layout_marginTop="20px">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Visibility"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                     <TextView
                         android:id="@+id/tv_vis"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                 </TableRow>
+                
                 <TableRow
                     android:layout_marginTop="20px">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sunrise"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                     <TextView
                         android:id="@+id/tv_sur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                 </TableRow>
+                
                 <TableRow
                     android:layout_marginTop="20px">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sunset"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                     <TextView
                         android:id="@+id/tv_sus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-
-                        />
+                        android:textAppearance="?android:attr/textAppearanceMedium"/>
                 </TableRow>
             </TableLayout>
-
         </LinearLayout>
     </LinearLayout>
-
 </ScrollView>
