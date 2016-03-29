@@ -12,7 +12,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         rg=(RadioGroup)findViewById(R.id.rg1);
         rb1.setChecked(true);
 
-
+        //Clicking the forecast.io icon to show the webpage from where we are getting our weather forecast data.
         img.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Intent intent = new Intent();
@@ -65,19 +64,16 @@ public class MainActivity extends AppCompatActivity {
         int id=rg.getCheckedRadioButtonId();
         RadioButton rb=(RadioButton)findViewById(id);
         e=rb.getText().toString();
-
         a = et1.getText().toString();
         b = et2.getText().toString();
         c= sp.getSelectedItem().toString();
         d=sp.getSelectedItemPosition();
 
-
-
+        //Input Validation..to verify user has put correct Street Address and city and selected a state.
         tv1.setText("");
         if(a.isEmpty())
         {
-
-           tv1.setText("Please enter a Street Address");
+            tv1.setText("Please enter a Street Address");
             return;
         }
         if(b.isEmpty())
@@ -90,27 +86,27 @@ public class MainActivity extends AppCompatActivity {
             tv1.setText("Please select a State");
             return;
         }
+        //Creating the Url to fetch Json data from server AWS.The server requests the data from the forecast.io website.
         try {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("http")
                     .authority("amweb-env.elasticbeanstalk.com")
-
                     .appendQueryParameter("StreetAddress", a)
                     .appendQueryParameter("city", b)
                     .appendQueryParameter("state", new Statecodes().getscode(d))
                     .appendQueryParameter("degree", e);
             String myUrl = builder.build().toString();
             URL url=new URL(myUrl);
-        //    URL url = new URL("http://amweb-env.elasticbeanstalk.com/?StreetAddress="+uri.e+"2825%2C+Ellendale+Pl&city=New+York&state=NY&degree=Fahrenheit");
+        //  URL url = new URL("http://amweb-env.elasticbeanstalk.com/?StreetAddress="+uri.e+"2825%2C+Ellendale+Pl&city=New+York&state=NY&degree=Fahrenheit");
             String json=new GetJson().execute(url).get();
             Intent in=new Intent(this, ResultActivity.class);
+            //Sending data to the Results activity to show user the results of the search.
             in.putExtra("Json",json.toString());
             in.putExtra("street",a);
             in.putExtra("city", b);
             in.putExtra("state", new Statecodes().getscode(d));
             in.putExtra("degree",e);
             startActivity(in);
-
         }
 
         catch (Exception ex)
@@ -118,9 +114,9 @@ public class MainActivity extends AppCompatActivity {
             ex.printStackTrace();
         }
 
-
-
     }
+    
+    //If we click the clear button
     public void clc(View v) {
         et1.setText("");
         et2.setText("");
@@ -131,12 +127,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void abt(View v) {
         Intent in=new Intent(this, about.class);
+        //About activity take us to the Developer's Information Page.
         startActivity(in);
 
     }
 
+    //AsyncTask is used to perform background operations instead of performing in main thread and update the user interface.
     private class GetJson extends AsyncTask<URL, Void, String> {
-
+        
+        //The doInBackground(Params…) class is used to perform background operations such as getting data from the server
+        //Here we are getting JSON response from the URL.
         @Override
         protected String doInBackground(URL... urls) {
             HttpURLConnection urlconn=null;
@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Abbrevations for states.
     private class Statecodes
     {
         private String[] states={"","AL","AK","AZ","AR","CA","CO","CT","DE",
